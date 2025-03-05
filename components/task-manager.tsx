@@ -1,6 +1,7 @@
 "use client"
 
 import { useEffect, useState } from "react"
+import { useProfile } from "@/hooks/use-profile"
 import { ReasoningLogService } from "@/services/ai/reasoningLogService"
 import { useReflectionSystem } from "@/components/task/hooks/useReflectionSystem"
 import { useTaskManagement } from "@/components/task/hooks/useTaskManagement"
@@ -241,7 +242,8 @@ export function TaskManager() {
           justification: '',
           goal: '',
           priority: '',
-          currentQuadrant: quadrant
+          currentQuadrant: quadrant,
+          personalContext: useProfile.getState().getPersonalContext()
         }),
       });
       

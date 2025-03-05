@@ -8,7 +8,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
-import { Brain, HelpCircle, Github, Menu, Lightbulb, Download, BarChart2, Settings } from "lucide-react"
+import { Brain, HelpCircle, Github, Menu, Lightbulb, Download, BarChart2, Settings, UserCircle } from "lucide-react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 
@@ -69,6 +69,13 @@ export function SettingsMenu() {
           </a>
         </DropdownMenuItem>
         
+        <DropdownMenuItem asChild>
+          <Link href="/settings/profile" className="flex w-full cursor-pointer items-center">
+            <UserCircle className="mr-2 h-4 w-4" />
+            <span>Profile</span>
+          </Link>
+        </DropdownMenuItem>
+
         <DropdownMenuItem asChild>
           <Link href="/settings" className="flex w-full cursor-pointer items-center">
             <Settings className="mr-2 h-4 w-4" />

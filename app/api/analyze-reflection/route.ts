@@ -20,7 +20,7 @@ const openai = new OpenAI({
 
 export async function POST(request: Request) {
   try {
-    const { task, justification, goal, priority, currentQuadrant } = await request.json();
+    const { task, justification, goal, priority, currentQuadrant, personalContext } = await request.json();
 
     if (!task) {
       return NextResponse.json({ error: 'Task text is required' }, { status: 400 });
@@ -39,6 +39,9 @@ CONTEXT:
 - User's current goal: "${goal || 'Not specified'}"
 - User's current priority: "${priority || 'Not specified'}"
 - Current quadrant assignment: ${currentQuadrant || 'Not specified'}
+- Personal Context: "${personalContext || 'Not specified'}"
+
+Use the personal context to better understand the user's priorities, work style, and what makes tasks urgent or important to them. This should influence how you categorize tasks.
 
 TASK TO ANALYZE: "${task}"
 ${justification ? `User's justification: "${justification}"` : ''}
